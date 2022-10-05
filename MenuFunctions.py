@@ -4,7 +4,10 @@ from PIL import Image, ImageTk
 from tkinter import filedialog
 from tkinter.font import *
 import webbrowser
+import Text
 import Constants
+
+'''Menu functions module.'''
 
 # ======================================================================================================
 # FILE MENU FUNCTIONS

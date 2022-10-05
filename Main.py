@@ -2,8 +2,10 @@
 from tkinter import *
 from PIL import Image, ImageTk
 from tkinter.font import *
-import MenuFunctions
+import Text
 import Constants
+import MenuFunctions
+
 
 # Window setup
 root = Tk()
@@ -254,7 +256,7 @@ discordIconImage = ImageTk.PhotoImage(Image.open('GUI/helpMenu/discord_logo.ico'
 # ======================================================================================================
 # File Menu
 fileMenu = Menu(baseMenu, tearoff=0, activebackground='#AABBFF', activeforeground='#000000')
-baseMenu.add_cascade(label="File", menu=fileMenu)
+baseMenu.add_cascade(label=Text.fileMenuName, menu=fileMenu)
 fileMenu.add_command(label=" New Chart File...", command=MenuFunctions.newChart, accelerator="(CTRL + N)", compound='left', image=newFileImage)
 root.bind_all('<Control-n>', MenuFunctions.newChart)
 fileMenu.add_command(label=" Open Chart File...", command=MenuFunctions.openChart, accelerator="(CTRL + O)", compound='left', image=openFileImage)

@@ -32,6 +32,9 @@
     <Compile Include="Constants.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Text.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="MCPEnv1\">
