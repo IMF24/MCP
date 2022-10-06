@@ -13,12 +13,3 @@ fileNew = " New Chart File..."
 
 editMenuName = "Edit"
 viewMenuName = "View"
-
-
-
-# ========================================================================================
-# Other Required Text
-# ========================================================================================
-# License Text
-licenseTextFile = open("LICENSE.txt")
-licenseText = licenseTextFile.read(licenseTextFile)

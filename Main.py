@@ -1,5 +1,6 @@
 ﻿# Import needed modules
 from tkinter import *
+from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter.font import *
 import Text
@@ -410,6 +411,7 @@ helpMenu = Menu(baseMenu, tearoff=0, activebackground='#AABBFF', activeforegroun
 baseMenu.add_cascade(label="Help", menu=helpMenu)
 helpMenu.add_command(label=" About MCP and Credits", command=MenuFunctions.aboutProgram, compound='left', image=aboutIconImage)
 helpMenu.add_command(label=" Legal Information", command=MenuFunctions.legalInfo, compound='left', image=alertIconImage)
+helpMenu.add_command(label=" GNU General Public License", command=MenuFunctions.licenseTermsOpen, compound='left')
 helpMenu.add_separator()
 helpMenu.add_command(label=" Help (User Documentation)", command=noCommand, accelerator="(F1)", compound='left', image=helpIconImage)
 helpMenu.add_command(label=" IMF Games Hub & Support", command=MenuFunctions.openDiscordServer, compound='left', image=discordIconImage)

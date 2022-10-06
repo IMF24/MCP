@@ -1,5 +1,13 @@
+"""
+Menu functions module.
+
+This module houses all functions for the various menus, as well as opening windows
+for the various commands executed under the Top Menu.
+"""
+
 # Import needed modules
 from tkinter import *
+from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import filedialog
 from tkinter.font import *
@@ -7,7 +15,9 @@ import webbrowser
 import Text
 import Constants
 
-'''Menu functions module.'''
+# ======================================================================================================
+# FILE MENU FUNCTIONS
+# ======================================================================================================
 
 # ======================================================================================================
 # FILE MENU FUNCTIONS
@@ -105,6 +115,9 @@ def aboutProgram():
     images for informational or educational purposes
     constitutes fair use under United States copyright
     law. (Title 17, U.S.C.)
+
+    To view the license terms of the GPL-3 License, go to
+    Help > GNU General Public License.
     """
 
     mainTextLabel = Label(aboutMCPRoot, text=aboutMCPMainText, font=("Times New Roman", 12, BOLD), bg='#292D3E', fg='#FFFFFF', justify='left').grid(row=1, column=0)
@@ -140,6 +153,49 @@ def legalInfo():
     legalInfoOKButton = Button(legalInfoRoot, text="OK", command=legalInfoRoot.destroy, activebackground='#AABBFF', bg='#7581AF', activeforeground='#FFFFFF', fg='#000000', font=("Times New Roman", 12, BOLD), width=10).grid(row=1, column=0)
 
     legalInfoRoot.mainloop()
+
+# 
+def licenseTermsOpen():
+    '''Opens the dialog displaying program's license information when using the program.'''
+    licenseTermsRoot = Tk()
+    licenseTermsRoot.title("GNU General Public License")
+    licenseTermsRoot.iconbitmap('GUI/icon.ico')
+    licenseTermsRoot.configure(bg='#292D3E')
+    licenseTermsRoot.geometry("740x480")
+    licenseTermsRoot.resizable(False, False)
+
+    # Open the file containing the GNU License terms.
+    licenseTextFile = open("LICENSE.txt")
+    licenseText = licenseTextFile.read()
+
+    # Make the frame and canvas to hold the text in.
+    licenseInfoFrame1 = Frame(licenseTermsRoot)
+    licenseInfoFrame1.pack(fill='both', expand=1)
+
+    licenseInfoCanvas = Canvas(licenseInfoFrame1)
+    licenseInfoCanvas.pack(side='left', fill='both', expand=1)
+
+    # Add the scroll bar.
+    licenseInfoScrollBar = ttk.Scrollbar(licenseInfoFrame1, orient='vertical', command=licenseInfoCanvas.yview)
+    licenseInfoScrollBar.pack(side='right', fill='y')
+
+    # Configure the canvas and bind the scroll bar.
+    licenseInfoCanvas.configure(yscrollcommand=licenseInfoScrollBar.set)
+    licenseInfoCanvas.bind('<Configure>', lambda e: licenseInfoCanvas.configure(scrollregion=licenseInfoCanvas.bbox('all')))
+
+    # Add the second frame.
+    licenseInfoFrame2 = Frame(licenseInfoCanvas)
+    licenseInfoCanvas.create_window((0, 0), window=licenseInfoFrame2, anchor='nw')
+
+    # Add license text.
+    licenseTextLabel = Label(licenseInfoFrame2, text=licenseText, font=("Times New Roman", 12, BOLD), bg='#292D3E', fg='#FFFFFF', justify='left').grid(row=0, column=0)
+
+    # OK button.
+    licenseInfoOKButton = Button(licenseTermsRoot, text="OK", command=licenseTermsRoot.destroy, activebackground='#AABBFF', bg='#7581AF', activeforeground='#FFFFFF', fg='#000000', font=("Times New Roman", 12, BOLD), width=10)
+
+    licenseTermsRoot.mainloop()
+
+
 
 
 def openDiscordServer():
