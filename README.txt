@@ -1,3 +1,5 @@
+*** NOTE: The repository will be changing soon! I will be reuploading a better version of the program's base soon.
+
 Hi there! Welcome to the GitHub repository for The Most Complete Charting Program (MCP). MCP is a free and open source program that aims to be the most feature-packed and complete rhythm game charting program with support for a multitude of games that support the creation of custom charts. It is based off of Moonscraper Chart Editor (MSCE) and Editor on Fire (EOF) for its GUI design.
 
 If you wish to contribute, and are experienced in programming, feel free to!
